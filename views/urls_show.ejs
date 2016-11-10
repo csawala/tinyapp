@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>TinyApp</title>
+</head>
+<body>
+  <header><% include ./partials/_header %></header>
+  <table cellspacing="5">
+    <tr>
+      <td style="padding: 15px;">
+        <strong><a href="/u/<%= shortURL %>" target="_blank"><%= shortURL %></strong></a>
+      </td>
+      <td>
+        <a href="<%= longURL %>" target="_blank"><%= longURL %></a>
+      </td>
+    </tr>
+    <tr>
+  </table>
+    <form action="/urls/<%= shortURL %>/update" method="POST" style="margin:20px;">
+      <label for="longURL">Current URL:</label>
+      <input id="longURL" type="text" name="longURL" value="<%= longURL %>" style="width: 200px">
+      <input type="submit" value="♺ Update ♺">
+    </form>
+  <table cellspacing="5">
+    <tr>
+      <td style="padding: 15px;">
+        <form method="link" action="/urls">
+          <input type="submit" value="🏠 Home 🏠">
+        </form>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>TinyApp</title>
+</head>
+<body>
+  <header><% include ./partials/_header %></header>
+  <h1 style="font-family:verdana;">Shortened Links... Get!</h1>
+  <table cellspacing="5">
+    <% for (var keys in urls) { %>
+      <tr>
+        <td>
+          <strong><a href="/u/<%= keys %>" target="_blank"><%= keys %></strong></a>
+        </td>
+        <td>→ <a href="<%= urls[keys] %>" target="_blank"><%= urls[keys] %></a></td>
+        <td>
+          <form method="GET" action="/urls/<%= keys %>/">
+            <input type="submit" value="⎌EDIT⎌">
+          </form>
+        </td>
+        <td>
+          <form method="POST" action="/urls/<%= keys %>/delete">
+            <input type="submit" value="🗑DELETE🗑">
+          </form>
+        </td>
+      </tr>
+    <% } %>
+    <tr>
+      <td></td>
+      <td style="padding: 15px;">
+        <form method="link" action="/urls/new">
+          <input type="submit" value="✚ New Link ✚">
+        </form>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
